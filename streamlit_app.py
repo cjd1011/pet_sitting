@@ -12,7 +12,7 @@ st.markdown("At Whiskers & Wagging Tails, we believe that every tail wag and gen
 #conn = st.experimental_connection("gsheets",type=GSheetsConnection)
 conn = st._connection("gsheets",type=GSheetsConnection)
 #Fetch existing vendors data
-existing_data = conn.read(worksheet="Vendors", usecols=list(range(6)),ttl=5)
+existing_data = conn.read(worksheet="Vendors", usecols=list(range(9)),ttl=5)
 #existing_data = conn.read(worksheet="Entry-form", sheet_name= "Vendors", usecols=list(range(6)),ttl=5)
 existing_data = existing_data.dropna(how="all")
 
@@ -38,6 +38,9 @@ with st.form(key="vendor_form"):
     services = st.multiselect("Services Offered", options=SERVICES)
     quantity_days = st.slider("Quantity of Days", 0, 50, 5)
     onboarding_date = st.date_input(label="Onboarding Date")
+    address = st.text_input(label="Address*")
+    suburb = st.text_input(label="Suburb*")
+    phone_number = st.text_input(label="Phone Number*")
     additional_info = st.text_area(label="Additional Notes: Please, specify pet breed, weight or if is other kind of small animal (Bird, rabbit, ferret, etc)")
 
     # Mark mandatory fields
@@ -64,6 +67,9 @@ with st.form(key="vendor_form"):
                         "Services": ", ".join(services),
                         "Quantity Days": quantity_days,
                         "Onboarding Date": onboarding_date.strftime("%Y-%m-%d"),
+                        "Address": address,
+                        "Suburb": suburb,
+                        "Phone Number": phone_number,
                         "Additional Info": additional_info,
                     }
                 ]
