@@ -46,7 +46,7 @@ with st.form(key="vendor_form"):
     # Mark mandatory fields
     st.markdown("**required*")
 
-    submit_button = st.form_submit_button(label="Submit Vendor Details")
+    submit_button = st.form_submit_button(label="Submit Pet Details")
 
     # If the submit button is pressed
     if submit_button:
@@ -81,4 +81,4 @@ with st.form(key="vendor_form"):
             # Update Google Sheets with the new vendor data
             conn.update(worksheet="Vendors", data=updated_df)
 
-            st.success("Vendor details successfully submitted!")  
+            st.success("Pet details successfully submitted!")  
