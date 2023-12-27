@@ -41,6 +41,7 @@ with st.form(key="vendor_form"):
     address = st.text_input(label="Address*")
     suburb = st.text_input(label="Suburb*")
     phone_number = st.text_input(label="Phone Number*")
+    email = st.text_input(label="email*")
     additional_info = st.text_area(label="Additional Notes: Please, specify pet breed, weight or if is other kind of small animal (Bird, rabbit, ferret, etc)")
 
     # Mark mandatory fields
@@ -51,7 +52,7 @@ with st.form(key="vendor_form"):
     # If the submit button is pressed
     if submit_button:
         # Check if all mandatory fields are filled
-        if not Pet_name or not Pet_type:
+        if not address or not phone_number:
             st.warning("Ensure all mandatory fields are filled.")
             st.stop()
         #elif existing_data["Pet Name"].str.contains(Pet_name).any():
@@ -70,6 +71,7 @@ with st.form(key="vendor_form"):
                         "Address": address,
                         "Suburb": suburb,
                         "Phone Number": phone_number,
+                        "Email": email,
                         "Additional Info": additional_info,
                     }
                 ]
