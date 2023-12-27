@@ -41,7 +41,7 @@ with st.form(key="vendor_form"):
     address = st.text_input(label="Address*")
     suburb = st.text_input(label="Suburb*")
     phone_number = st.text_input(label="Phone Number*")
-    email = st.text_input(label="email*")
+    email = st.text_input(label="Email*")
     additional_info = st.text_area(label="Additional Notes: Please, specify pet breed, weight or if is other kind of small animal (Bird, rabbit, ferret, etc)")
 
     # Mark mandatory fields
